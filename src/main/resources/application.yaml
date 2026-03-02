@@ -1,3 +1,16 @@
 spring:
   application:
     name: pg-spring-base
+  data:
+    mongo:
+      uri: mongodb://${database.mongo.host}:${database.mongo.port}/${database.mongo.base}
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+database:
+  mongo:
+    host: ${MONGO_DB_HOST:localhost}
+    port: ${MONGO_DB_PORT:27017}
+    base: ${MONGO_DB_BASE:posgrad}
